@@ -420,7 +420,7 @@
   .room-amenities li{ display:flex; align-items:center; gap:.55em; }
   .room-amenities svg{ width:1.05em; height:1.05em; color:var(--on-verde-soft); flex:none; }
   .room-photos-btn{
-    margin-top:auto; align-self:flex-start;
+    margin-top:auto; align-self:center;
     display:inline-flex; align-items:center; gap:.5em;
     background:none; border:1.5px solid var(--line-on-verde);
     border-radius:4px; padding:.55em .9em;
@@ -492,15 +492,26 @@
   .corp-panel{
     display:grid; gap:clamp(1.5rem,4vw,3rem);
     grid-template-columns:1.3fr 1fr;
-    align-items:center;
+    align-items:start;
     padding-block:clamp(1rem,3vw,2rem);
   }
   .corp-list{ list-style:none; margin:1.25rem 0 0; padding:0; display:grid; gap:.7rem; font-size:.92rem; }
   .corp-list li{ display:flex; gap:.6em; }
   .corp-list svg{ width:1.15em; height:1.15em; color:var(--accent-tint); flex:none; margin-top:.15em; }
-  @media (max-width: 780px){ .corp-panel{ grid-template-columns:1fr; } }
+  .corp-media{ display:flex; flex-direction:column; gap:1.5rem; }
+  .corp-media img{
+    width:100%; height:auto; aspect-ratio:3/4; object-fit:cover;
+    border-radius:8px; box-shadow:var(--shadow); display:block;
+  }
+  .corp-media .btn{ align-self:flex-start; }
+  @media (max-width: 780px){
+    .corp-panel{ grid-template-columns:1fr; }
+    .corp-media img{ aspect-ratio:16/10; }
+  }
 
-  /* — Desayuno — */
+  /* — Desayuno / información importante — */
+  .info-cards{ display:grid; gap:1.5rem; }
+  @media (min-width:860px){ .info-cards{ grid-template-columns:1fr 1fr; align-items:stretch; } }
   .breakfast{
     display:grid; grid-template-columns:auto 1fr auto; gap:2rem;
     align-items:center;
@@ -510,6 +521,7 @@
     color:var(--ink);
     box-shadow:var(--shadow);
   }
+  .breakfast-time strong + strong{ margin-top:.3rem; }
   .breakfast-icon{
     width:3.5rem; height:3.5rem; border-radius:50%;
     background:var(--accent-tint); color:var(--verde);
@@ -647,11 +659,13 @@
     </a>
     <nav aria-label="Principal">
       <ul class="nav-links" id="navLinks">
+        <li><a href="#nosotros">Nuestra historia</a></li>
         <li><a href="#habitaciones">Habitaciones</a></li>
         <li><a href="#empresas">Empresas y grupos</a></li>
         <li><a href="#instalaciones">Instalaciones</a></li>
         <li><a href="#ubicacion">Ubicación</a></li>
         <li><a href="#contacto">Contacto</a></li>
+        <li><a href="#informacion">Información importante</a></li>
         <li><a href="#contacto" class="nav-link-reservar">Reservar</a></li>
       </ul>
     </nav>
@@ -802,32 +816,11 @@
           <li><svg aria-hidden="true"><use href="#i-house"/></svg> Reservación de habitaciones para grupos y eventos</li>
         </ul>
       </div>
-      <div>
+      <div class="corp-media">
+        <img src="imagenes-nuevas-hosteria/corp-gradas.jpg" alt="Escaleras de madera y tragaluz de La Hostería de Don R" width="1200" height="1600" loading="lazy">
         <a class="btn btn-outline" href="https://wa.me/50224392780?text=Hola%2C%20represento%20a%20una%20empresa%20y%20quisiera%20cotizar%20tarifas%20corporativas%2Fgrupales%20en%20La%20Hoster%C3%ADa%20de%20Don%20R." target="_blank" rel="noopener">
           <svg aria-hidden="true"><use href="#i-whatsapp"/></svg> Cotizar para mi empresa
         </a>
-      </div>
-    </div>
-  </section>
-
-  <!-- DESAYUNO -->
-  <section class="section panel-verde">
-    <div class="grille" aria-hidden="true"></div>
-    <div class="container reveal">
-      <div class="breakfast">
-        <div class="breakfast-icon"><svg aria-hidden="true"><use href="#i-coffee"/></svg></div>
-        <div>
-          <h3 style="margin-bottom:.2rem;">Desayuno continental incluido</h3>
-          <p style="color:var(--ink-soft); font-size:.92rem;">En todas las habitaciones, para que salgas a tu reunión con tiempo de sobra.</p>
-          <div class="menu-tags">
-            <span>Pan tostado</span><span>Cereales</span><span>Jalea</span><span>Mantequilla</span>
-            <span>Café</span><span>Té</span><span>Jugo de naranja</span><span>Leche</span>
-          </div>
-        </div>
-        <div class="breakfast-time">
-          <strong>6:00 – 9:45 a.m.</strong>
-          todos los días
-        </div>
       </div>
     </div>
   </section>
@@ -921,6 +914,45 @@
         </a>
         <div class="contact-note">
           Calzada Roosevelt 37-47, zona 11, interior B, Ciudad de Guatemala
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- INFORMACIÓN IMPORTANTE -->
+  <section class="section panel-verde" id="informacion">
+    <div class="grille" aria-hidden="true"></div>
+    <div class="container">
+      <div class="section-head reveal">
+        <div class="eyebrow">Información importante</div>
+        <h2>Lo esencial para tu estadía</h2>
+      </div>
+      <div class="info-cards reveal">
+        <div class="breakfast">
+          <div class="breakfast-icon"><svg aria-hidden="true"><use href="#i-coffee"/></svg></div>
+          <div>
+            <h3 style="margin-bottom:.2rem;">Desayuno continental incluido</h3>
+            <p style="color:var(--ink-soft); font-size:.92rem;">En todas las habitaciones, para que salgas a tu reunión con tiempo de sobra.</p>
+            <div class="menu-tags">
+              <span>Pan tostado</span><span>Cereales</span><span>Jalea</span><span>Mantequilla</span>
+              <span>Café</span><span>Té</span><span>Jugo de naranja</span><span>Leche</span>
+            </div>
+          </div>
+          <div class="breakfast-time">
+            <strong>6:00 – 9:45 a.m.</strong>
+            todos los días
+          </div>
+        </div>
+        <div class="breakfast">
+          <div class="breakfast-icon"><svg aria-hidden="true"><use href="#i-clock"/></svg></div>
+          <div>
+            <h3 style="margin-bottom:.2rem;">Entrada y salida</h3>
+            <p style="color:var(--ink-soft); font-size:.92rem;">Para que puedas organizar tu llegada y tu salida con tiempo de sobra.</p>
+          </div>
+          <div class="breakfast-time">
+            <strong>Check-in 14:00</strong>
+            <strong>Check-out 13:00</strong>
+          </div>
         </div>
       </div>
     </div>
