@@ -176,43 +176,20 @@
   /* — Portada / splash de bienvenida — */
   .splash{
     position:fixed; inset:0; z-index:300;
-    display:flex; flex-direction:column;
-    background:var(--verde-deep);
+    overflow:hidden;
     transition:opacity .5s ease;
   }
   .splash.is-hidden{ opacity:0; pointer-events:none; }
-  .splash-photo{
-    flex:1 1 auto; min-height:0;
-    position:relative; overflow:hidden;
-  }
   .splash-img{
     position:absolute; inset:0;
     width:100%; height:100%; object-fit:cover;
   }
   .splash-content{
-    flex:0 0 auto;
-    background:var(--verde-deep);
-    border-top:3px solid var(--accent);
-    display:flex; flex-direction:column; align-items:center; text-align:center;
-    gap:.4rem;
-    padding:1.5rem clamp(1.25rem,6vw,3rem) clamp(1.75rem,5vw,2.5rem);
-    color:#FFF;
+    position:absolute; left:0; right:0; bottom:0;
+    display:flex; justify-content:center;
+    padding:0 clamp(1.25rem,6vw,3rem) clamp(2.5rem,9vw,5rem);
   }
-  .splash-eyebrow{
-    font-family:var(--sans); font-size:.8rem; font-weight:700;
-    letter-spacing:.14em; text-transform:uppercase; color:var(--accent-tint);
-    margin:0;
-  }
-  .splash-name{
-    font-family:var(--serif); font-weight:700; color:#FFF;
-    font-size:clamp(1.5rem, 1.25rem + 1.6vw, 2.3rem);
-    margin:0;
-  }
-  .splash-tag{
-    font-family:var(--sans); font-size:.9rem; color:rgba(255,255,255,0.85);
-    margin:0 0 .75rem;
-  }
-  .splash-btn{ margin-top:.25rem; }
+  .splash-btn{ box-shadow:0 10px 24px -8px rgba(0,0,0,0.5); }
 
   body.splash-active{ overflow:hidden; height:100%; }
 
@@ -579,13 +556,8 @@
 </head>
 <body>
 <div class="splash" id="splashScreen">
-  <div class="splash-photo">
-    <img src="portada-jardin.jpg" alt="Jardín y logo de La Hostería de Don R" class="splash-img">
-  </div>
+  <img src="portada-jardin.jpg" alt="Jardín y logo de La Hostería de Don R" class="splash-img">
   <div class="splash-content">
-    <p class="splash-eyebrow">Bienvenido a</p>
-    <p class="splash-name">La Hostería de Don R</p>
-    <p class="splash-tag">Bed &amp; Breakfast · Zona 11, Ciudad de Guatemala</p>
     <button type="button" class="btn btn-solid splash-btn" id="splashEnter">Inicio</button>
   </div>
 </div>
