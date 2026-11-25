@@ -189,7 +189,19 @@
     display:flex; justify-content:center;
     padding:0 clamp(1.25rem,6vw,3rem) clamp(2.5rem,9vw,5rem);
   }
-  .splash-btn{ box-shadow:0 10px 24px -8px rgba(0,0,0,0.5); }
+  .splash-btn{
+    display:inline-flex; align-items:center; justify-content:center;
+    font-family:var(--serif); font-weight:700; font-size:2rem;
+    letter-spacing:.02em;
+    padding:0.55em 1.9em;
+    border-radius:999px;
+    background:var(--bg); color:var(--verde-deep);
+    border:1.5px solid transparent;
+    cursor:pointer;
+    box-shadow:0 14px 30px -10px rgba(0,0,0,0.45);
+    transition:transform .15s ease, box-shadow .15s ease, background-color .15s ease;
+  }
+  .splash-btn:hover{ background:#FFFFFF; transform:translateY(-1px); box-shadow:0 18px 36px -10px rgba(0,0,0,0.5); }
 
   body.splash-active{ overflow:hidden; height:100%; }
 
@@ -558,7 +570,7 @@
 <div class="splash" id="splashScreen">
   <img src="portada-jardin.jpg" alt="Jardín y logo de La Hostería de Don R" class="splash-img">
   <div class="splash-content">
-    <button type="button" class="btn btn-solid splash-btn" id="splashEnter">Inicio</button>
+    <button type="button" class="splash-btn" id="splashEnter">Inicio</button>
   </div>
 </div>
 
